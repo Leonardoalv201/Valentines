@@ -1,0 +1,145 @@
+<html>
+    <body>
+        <div>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <h1 id="text">Will you be my valentine?</h1>
+            <img id="valentineImage" src="https://carterpsych.com/wp-content/uploads/2019/02/valentine-roses.jpg" alt="Valentine's Day Image" style="max-width: 300px; height: auto;">
+            <br/>
+            <br/>
+            <br/>
+            <button id="yesButton">Yes</button>
+            <button id="no">No</button>
+        </div>
+
+        <style>
+            body {
+                background: linear-gradient(to bottom, #f5cac3, #f7ede2);
+            }
+            div {
+                text-align: center;
+                vertical-align: middle;
+            }
+            h1 {
+                color: #ff477e;
+            }
+            #yesButton {
+                background-color: initial;
+                background-image: linear-gradient(-180deg, #00D775, #00BD68);
+                border-radius: 5px;
+                box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px;
+                color: #FFFFFF;
+                cursor: pointer;
+                display: inline-block;
+                font-family: Inter,-apple-system,system-ui,Roboto,"Helvetica Neue",Arial,sans-serif;
+                height: 40px;
+                line-height: 44px;
+                outline: 0;
+                overflow: hidden;
+                padding: 0 20px;
+                pointer-events: auto;
+                position: relative;
+                text-align: center;
+                touch-action: manipulation;
+                user-select: none;
+                -webkit-user-select: none;
+                vertical-align: top;
+                white-space: nowrap;
+                width: 120px;
+                z-index: 9;
+                border: 0;
+                font-size: 30px;
+                transition: transform 0.3s;
+                margin-right: 10px;
+                margin-left: -140px;
+            }
+            .yesButton:hover {
+                background: #00bd68;
+            }
+            #no {
+                position: absolute;
+                /*background-color: #ef476f;*/
+                transition: transform 0.3s;
+                margin-left: 10px;
+                width: 120px;
+                /* font-size: 30px; */
+                /*height: 40px;*/
+                /*color: #fff;*/
+
+                background-color: initial;
+                background-image: linear-gradient(-180deg, #FF7E31, #E62C03);
+                border-radius: 6px;
+                box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px;
+                color: #FFFFFF;
+                cursor: pointer;
+                display: inline-block;
+                font-family: Inter,-apple-system,system-ui,Roboto,"Helvetica Neue",Arial,sans-serif;
+                height: 40px;
+                line-height: 40px;
+                outline: 0;
+                overflow: hidden;
+                padding: 0 20px;
+                pointer-events: auto;
+                /*position: relative;*/
+                text-align: center;
+                touch-action: manipulation;
+                user-select: none;
+                -webkit-user-select: none;
+                /*vertical-align: top;*/
+                white-space: nowrap;
+                /*width: 100%;*/
+                z-index: 9;
+                border: 0;
+                /*transition: box-shadow .2s;*/
+            }
+            .no:hover {
+                box-shadow: rgba(253, 76, 0, 0.5) 0 3px 8px;
+            }
+        </style>
+        <script>
+
+            var yesButton = document.getElementById("yesButton");
+            var noButton = document.getElementById("no");
+            var valentineImage = document.getElementById("valentineImage");
+            var text = document.getElementById("text");
+
+            var imageSources = ["https://pbs.twimg.com/media/Fyk7XMnaEAI3PsB.jpg", "https://media.tenor.com/BP70qe8X0J8AAAAe/crycat-crying-cat.png", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9e71v7IfFLLS_1CfY2it3an-6XH1uROjTfU5c88AwRL8aRkqAYDmoFrm9gpbUqwNameo&usqp=CAU", "https://i.pinimg.com/736x/cb/d8/3b/cbd83b534a315e809a9da2b8cd3ac3bf.jpg"];
+
+            yesButton.addEventListener("click", showAlert);
+
+            function showAlert() {
+                valentineImage.src = "https://static.wikia.nocookie.net/5400c9a4-2fae-4d54-b88e-efc36bb543a2/scale-to-width/755"
+                text.innerText = "I love you <3";
+                alert("I knew you would say yes <3");
+            }
+
+            noButton.addEventListener("click", change);
+
+            function change() {
+                text.innerText = "Will you be my valentine?";
+
+                var i = Math.floor(Math.random() * 1000) + 1;
+                var j = Math.floor(Math.random() * 700) + 1;
+                var nocurrentWidth = noButton.offsetWidth;
+                var nocurrentHeight = noButton.offsetHeight
+                noButton.style.width = nocurrentWidth - 9 + "px";
+                noButton.style.height = nocurrentHeight - 3 + "px";
+                noButton.style.left = i + "px";
+                noButton.style.top = j + "px";
+
+                var currentWidth = yesButton.offsetWidth;
+                var currentHeight = yesButton.offsetHeight
+                yesButton.style.width = currentWidth + 30 + "px";
+                yesButton.style.height = currentHeight + 10 + "px";
+
+                var randomImageIndex = Math.floor(Math.random() * imageSources.length);
+                valentineImage.src = imageSources[randomImageIndex];
+                noButton.style.fontSize = Math.min(nocurrentWidth, nocurrentHeight) / 3 + "px";
+            }
+        </script>
+    </body>
+</html>
